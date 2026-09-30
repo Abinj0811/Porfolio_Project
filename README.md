@@ -88,7 +88,7 @@ All text is kept in **`src/data/portfolio.ts`**. You can change the content with
 
 - **`profile`**: name, title, tagline, location, email and LinkedIn.
   - `github`: set it to your GitHub profile URL to show GitHub links in the hero and contact sections. It is empty by default because the source documents did not include one.
-  - `resumeUrl`: copy your résumé to `public/resume.pdf` and set `resumeUrl: "/resume.pdf"` to show a **Résumé** download button.
+  - `resumeUrl`: copy your résumé into `public/` and set `resumeUrl` to its path (for example `"/AbinJoseph_AI_Engineer_Resume.pdf"`) to show a **Résumé** download button.
   - `showPhone`: set it to `true` to show the phone number in the contact section. It is off by default so the number stays off a public page.
 - **`about`**: introduction paragraphs and focus areas. The first four focus areas appear as chips in the hero.
 - **`pipelineStages`**: the stages shown in the hero pipeline diagram.
