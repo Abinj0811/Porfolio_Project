@@ -70,7 +70,7 @@ export default async function NotePage({ params }: { params: Promise<Params> }) 
           {note.summary && <p className="mt-4 text-lg leading-relaxed text-muted">{note.summary}</p>}
         </header>
 
-        <article className="prose prose-note mt-10 max-w-none" dangerouslySetInnerHTML={{ __html: note.html }} />
+        <article className="prose-note mt-10 max-w-none" dangerouslySetInnerHTML={{ __html: note.html }} />
 
         <div className="mt-14 rounded-xl border border-line bg-surface p-6">
           <p className="text-sm text-muted">

@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 /* Class-based dark mode, toggled by ThemeToggle and the no-flash script in layout.tsx */
 @custom-variant dark (&:where(.dark, .dark *));
