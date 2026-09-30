@@ -1,4 +1,6 @@
+import Link from "next/link";
 import type { Project } from "@/data/portfolio";
+import { ArrowRight } from "./Icons";
 
 type ProjectCardProps = {
   project: Project;
@@ -20,7 +22,11 @@ export default function ProjectCard({ project, index, featured = false }: Projec
       <header className="flex items-start justify-between gap-4">
         <div>
           <p className="font-mono text-xs text-accent">{project.category}</p>
-          <h3 className="mt-2 text-xl font-semibold tracking-tight text-fg sm:text-2xl">{project.name}</h3>
+          <h3 className="mt-2 text-xl font-semibold tracking-tight text-fg sm:text-2xl">
+            <Link href={`/projects/${project.slug}`} className="transition-colors hover:text-accent">
+              {project.name}
+            </Link>
+          </h3>
         </div>
         <span className="font-mono text-sm text-subtle transition-colors group-hover:text-accent">
           {String(index + 1).padStart(2, "0")}
@@ -60,13 +66,23 @@ export default function ProjectCard({ project, index, featured = false }: Projec
         </div>
       </div>
 
-      <ul className="mt-auto flex flex-wrap gap-2 pt-7" aria-label="Technologies">
-        {project.tech.map((t) => (
-          <li key={t} className="rounded-md border border-line bg-surface-2 px-2.5 py-1 font-mono text-xs text-muted">
-            {t}
-          </li>
-        ))}
-      </ul>
+      <div className="mt-auto pt-7">
+        <ul className="flex flex-wrap gap-2" aria-label="Technologies">
+          {project.tech.map((t) => (
+            <li key={t} className="rounded-md border border-line bg-surface-2 px-2.5 py-1 font-mono text-xs text-muted">
+              {t}
+            </li>
+          ))}
+        </ul>
+        <Link
+          href={`/projects/${project.slug}`}
+          className="group/link mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent"
+          aria-label={`Read the ${project.name} case study`}
+        >
+          Case study & architecture
+          <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+        </Link>
+      </div>
     </article>
   );
 }

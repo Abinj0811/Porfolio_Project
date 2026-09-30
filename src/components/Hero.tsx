@@ -9,10 +9,24 @@ export default function Hero() {
 
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
         <div>
-          <p className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 font-mono text-xs text-muted">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
-            {profile.title}
-          </p>
+          <div className="flex flex-wrap items-center gap-2">
+            {profile.openToWork.enabled ? (
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent-soft px-3 py-1 font-mono text-xs text-accent transition-colors hover:border-accent"
+              >
+                <span className="relative flex h-2 w-2" aria-hidden>
+                  <span className="caret absolute inline-flex h-full w-full rounded-full bg-accent opacity-60" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                </span>
+                {profile.openToWork.message}
+              </a>
+            ) : (
+              <p className="inline-flex items-center rounded-full border border-line bg-surface px-3 py-1 font-mono text-xs text-muted">
+                {profile.title}
+              </p>
+            )}
+          </div>
 
           <h1 className="mt-6 text-5xl font-semibold tracking-tight text-fg sm:text-6xl lg:text-7xl">
             {profile.name}

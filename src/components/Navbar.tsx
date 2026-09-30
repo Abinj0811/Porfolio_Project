@@ -5,7 +5,7 @@ import { navLinks, profile } from "@/data/portfolio";
 import ThemeToggle from "./ThemeToggle";
 import { Close, Menu } from "./Icons";
 
-export default function Navbar() {
+export default function Navbar({ showNotes = false }: { showNotes?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -15,6 +15,8 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const links = navLinks.filter((l) => showNotes || l.href !== "/notes");
 
   const initials = profile.name
     .split(" ")
@@ -28,7 +30,7 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8" aria-label="Main">
-        <a href="#top" className="group flex items-center gap-2.5 font-mono text-sm text-fg">
+        <a href="/" className="group flex items-center gap-2.5 font-mono text-sm text-fg">
           <span className="grid h-8 w-8 place-items-center rounded-md border border-line font-semibold text-accent transition-colors group-hover:border-accent">
             {initials}
           </span>
@@ -36,7 +38,7 @@ export default function Navbar() {
         </a>
 
         <div className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => (
+          {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -67,7 +69,7 @@ export default function Navbar() {
       {open && (
         <div id="mobile-menu" className="border-t border-line px-5 pb-5 md:hidden">
           <ul className="flex flex-col pt-2">
-            {navLinks.map((link) => (
+            {links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
