@@ -17,9 +17,9 @@ export const profile = {
   showPhone: false,
   linkedin: "https://www.linkedin.com/in/abinjoseph0811",
   // Add your GitHub profile URL here to show it in the hero and contact sections.
-  github: "",
+  github: "https://github.com/Abinj0811",
   // Place your résumé at /public/resume.pdf and set this to "/resume.pdf" to enable the download button.
-  resumeUrl: "",
+  resumeUrl: "/resume.pdf",
 };
 
 export const about = {
