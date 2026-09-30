@@ -15,7 +15,7 @@ All content comes from the candidate's résumé and LinkedIn profile. Nothing wa
 | Featured work | 4 projects, each with its problem, solution, contribution, outcome and tech, linking to a full case study |
 | Experience | ThinkPalm Technologies role with scannable highlights grouped by area |
 | Skills | 8 logical groups (GenAI, RAG & Evaluation, Vector DBs, Document AI, CV, ML, Backend & Cloud, Tools) |
-| Education & certifications | B.Tech CSE and 5 certifications |
+| Education | B.Tech in Computer Science and Engineering |
 | Notes | Latest technical notes (hidden until the first note is published) |
 | Contact | Email, LinkedIn, GitHub, location (phone is optional) |
 
@@ -128,7 +128,7 @@ All text is kept in **`src/data/portfolio.ts`**. You can change the content with
   - `links` (optional): for example `[{ label: "GitHub repo", href: "https://…" }]`.
 - **`experience`**: company, dates, role history and highlight cards.
 - **`skillGroups`**: skill categories and their items.
-- **`education`** and **`certifications`**.
+- **`education`**: degree, institution and dates.
 - **`navLinks`**: the navigation items. "Notes" is hidden automatically until a note is published.
 
 ### Writing notes

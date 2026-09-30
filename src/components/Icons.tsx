@@ -108,15 +108,6 @@ export function Close({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
-export function Award({ className = "h-4 w-4" }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} {...base}>
-      <circle cx="12" cy="9" r="6" />
-      <path d="m8.2 13.8-1.2 8.2 5-3 5 3-1.2-8.2" />
-    </svg>
-  );
-}
-
 export function GraduationCap({ className = "h-4 w-4" }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} {...base}>
