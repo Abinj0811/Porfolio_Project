@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit -q -m 'Make Contact section text editable from portfolio.ts *)",
+      "Bash(git push *)"
+    ]
+  }
+}

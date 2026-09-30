@@ -311,6 +311,18 @@ export const education = {
 };
 
 
+/** Text for the Contact section. The "Say hello" card shows `sayHelloLabel` above your email address. */
+export const contact = {
+  eyebrow: "Contact",
+  title: "Let's talk about your AI roadmap.",
+  sayHelloLabel: "Say hello",
+  // Shown when profile.openToWork.enabled is false. When it is true, the intro starts with openToWork.message.
+  intro:
+    "Interested in AI/ML and Generative AI engineering — RAG, agentic systems and document intelligence. The fastest way to reach me is email.",
+  // Appended after openToWork.message when the badge is enabled.
+  openToWorkIntro: "RAG, agentic systems and document intelligence. The fastest way to reach me is email.",
+};
+
 export const navLinks = [
   { href: "/#projects", label: "Projects" },
   { href: "/#experience", label: "Experience" },
