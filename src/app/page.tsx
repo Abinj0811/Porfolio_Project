@@ -5,12 +5,10 @@ import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
-import Notes from "@/components/Notes";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { education, experience, profile, skillGroups } from "@/data/portfolio";
-import { hasPublishedNotes } from "@/lib/notes";
 import { siteUrl } from "@/lib/site";
 
 export default function Home() {
@@ -35,7 +33,7 @@ export default function Home() {
           affiliation: { "@type": "Organization", name: experience.company },
         }}
       />
-      <Navbar showNotes={hasPublishedNotes()} />
+      <Navbar />
       <main>
         <Hero />
         <About />
@@ -43,7 +41,6 @@ export default function Home() {
         <Experience />
         <Skills />
         <Education />
-        <Notes />
         <Contact />
       </main>
       <Footer />

@@ -5,7 +5,7 @@ import { navLinks, profile } from "@/data/portfolio";
 import ThemeToggle from "./ThemeToggle";
 import { Close, Menu } from "./Icons";
 
-export default function Navbar({ showNotes = false }: { showNotes?: boolean }) {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -15,8 +15,6 @@ export default function Navbar({ showNotes = false }: { showNotes?: boolean }) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const links = navLinks.filter((l) => showNotes || l.href !== "/notes");
 
   const initials = profile.name
     .split(" ")
@@ -38,7 +36,7 @@ export default function Navbar({ showNotes = false }: { showNotes?: boolean }) {
         </a>
 
         <div className="hidden items-center gap-1 md:flex">
-          {links.map((link) => (
+          {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -69,7 +67,7 @@ export default function Navbar({ showNotes = false }: { showNotes?: boolean }) {
       {open && (
         <div id="mobile-menu" className="border-t border-line px-5 pb-5 md:hidden">
           <ul className="flex flex-col pt-2">
-            {links.map((link) => (
+            {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
