@@ -310,13 +310,6 @@ export const education = {
   period: "Aug 2018 — Jun 2022",
 };
 
-export const certifications: string[] = [
-  "Google IT Automation with Python Specialization",
-  "Architecting with Google Compute Engine Specialization",
-  "Oracle Cloud Infrastructure Foundations 2021 Certified Associate",
-  "Open Source Software Development, Linux and Git Specialization",
-  "HTML Essential Training",
-];
 
 export const navLinks = [
   { href: "/#projects", label: "Projects" },
