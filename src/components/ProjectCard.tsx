@@ -79,7 +79,7 @@ export default function ProjectCard({ project, index, featured = false }: Projec
           className="group/link mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent"
           aria-label={`Read the ${project.name} case study`}
         >
-          Case study & architecture
+          Read case study
           <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
         </Link>
       </div>

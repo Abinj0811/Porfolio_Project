@@ -21,7 +21,7 @@ All content comes from the candidate's résumé and LinkedIn profile. Nothing wa
 
 Other pages:
 
-- **`/projects/[slug]`**: a case study for each project, with an architecture diagram, the problem, what was built, key decisions and why, the outcome, and optional lessons learned and links.
+- **`/projects/[slug]`**: a case study for each project, with the problem, what was built, key decisions and why, the outcome, and optional lessons learned and links.
 - **`/notes`** and **`/notes/[slug]`**: a Markdown-powered technical blog.
 
 ## SEO and sharing
@@ -83,7 +83,6 @@ npm run typecheck  # TypeScript check
 │   │   └── notes/             # notes index + note pages
 │   ├── components/
 │   │   ├── About.tsx
-│   │   ├── ArchitectureDiagram.tsx   # data-driven flow diagram
 │   │   ├── Contact.tsx
 │   │   ├── Education.tsx
 │   │   ├── Experience.tsx
@@ -124,7 +123,6 @@ All text is kept in **`src/data/portfolio.ts`**. You can change the content with
 - **`about`**: introduction paragraphs and focus areas. The first four focus areas appear as chips in the hero.
 - **`pipelineStages`**: the stages shown in the hero pipeline diagram.
 - **`projects`**: add, remove or reorder projects. The **first** project is shown as the large featured card, and the rest appear in a 3-column grid. Each project also drives its case-study page:
-  - `architecture.lanes`: the diagram. Each lane is a left-to-right flow of `{ label, detail }` steps.
   - `decisions`: key technical decisions, each with a `why`.
   - `lessons` (optional): your reflections. They are shown only when present.
   - `links` (optional): for example `[{ label: "GitHub repo", href: "https://…" }]`.
