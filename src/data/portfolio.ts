@@ -63,8 +63,6 @@ export type Project = {
   contribution: string;
   outcome: string;
   tech: string[];
-  /** Architecture diagram: each lane is a left-to-right flow of steps. */
-  architecture: { lanes: ArchitectureLane[]; caption?: string };
   /** Key technical decisions and the reason behind each one. */
   decisions: { decision: string; why: string }[];
   /** Optional — add your own reflections to show them on the case-study page. */
@@ -73,10 +71,6 @@ export type Project = {
   links?: { label: string; href: string }[];
 };
 
-export type ArchitectureLane = {
-  name: string;
-  steps: { label: string; detail?: string }[];
-};
 
 export const projects: Project[] = [
   {
@@ -98,39 +92,6 @@ export const projects: Project[] = [
     outcome:
       "An evaluation framework built on retrieval relevance, context quality and answer faithfulness surfaces RAG failure cases and drives improvements in response quality.",
     tech: ["Python", "LangChain", "LangGraph", "FAISS", "Azure OpenAI", "Vector Embeddings"],
-    architecture: {
-      lanes: [
-        {
-          name: "Ingestion",
-          steps: [
-            { label: "Source documents", detail: "Regulatory PDFs, text & tables" },
-            { label: "Extraction", detail: "PDF, text & table extraction" },
-            { label: "Table → text", detail: "Complex tables to structured text" },
-            { label: "Chunk & embed", detail: "Chunking + vector embeddings" },
-            { label: "Vector index", detail: "FAISS + metadata" },
-          ],
-        },
-        {
-          name: "Query",
-          steps: [
-            { label: "User question", detail: "Compliance query" },
-            { label: "Hybrid retrieval", detail: "Keyword + vector, metadata filters" },
-            { label: "Reranking", detail: "Precision on top results" },
-            { label: "LangGraph workflow", detail: "Retrieval & response orchestration" },
-            { label: "Grounded answer", detail: "Azure OpenAI with document context" },
-          ],
-        },
-        {
-          name: "Quality",
-          steps: [
-            { label: "Evaluation", detail: "Relevance, context quality, faithfulness" },
-            { label: "Tracing", detail: "Latency, retrieval results, LLM outputs" },
-            { label: "Failure analysis", detail: "Chunking, retrieval, prompting or generation" },
-          ],
-        },
-      ],
-      caption: "Documents are indexed once; every query runs through hybrid retrieval and a LangGraph workflow, with evaluation and tracing closing the loop.",
-    },
     decisions: [
       {
         decision: "Convert complex regulatory tables into structured text before indexing.",
@@ -169,30 +130,6 @@ export const projects: Project[] = [
     outcome:
       "Classified documents are converted into validated, structured data that backend applications consume directly through an API.",
     tech: ["Python", "AWS Bedrock", "LangChain", "LangGraph", "FastAPI"],
-    architecture: {
-      lanes: [
-        {
-          name: "Processing",
-          steps: [
-            { label: "Document upload", detail: "Submitted by a backend application" },
-            { label: "Understanding", detail: "Multimodal AWS Bedrock model" },
-            { label: "Classification", detail: "Mapped to a predefined checklist" },
-            { label: "Extraction", detail: "LLM-based field extraction" },
-            { label: "Validation", detail: "Rule-based checks" },
-            { label: "Structured data", detail: "Ready for downstream processing" },
-          ],
-        },
-        {
-          name: "Integration",
-          steps: [
-            { label: "Backend applications" },
-            { label: "FastAPI service", detail: "Document-processing endpoints" },
-            { label: "LangChain / LangGraph pipeline" },
-          ],
-        },
-      ],
-      caption: "Each upload is understood, matched to the checklist item it represents, extracted and validated before being returned as structured data.",
-    },
     decisions: [
       {
         decision: "Use a multimodal Bedrock model for document understanding.",
@@ -230,22 +167,6 @@ export const projects: Project[] = [
     outcome:
       "Handles challenging PDFs with borderless tables, irregular layouts, images and vertical text, exporting results to Excel and structured formats for downstream processing.",
     tech: ["Python", "YOLO", "OpenCV", "Tesseract OCR", "pdfplumber", "Pandas"],
-    architecture: {
-      lanes: [
-        {
-          name: "Pipeline",
-          steps: [
-            { label: "PDF page", detail: "Text, images & tables" },
-            { label: "Table detection", detail: "YOLO — bordered, borderless & more" },
-            { label: "Strategy selection", detail: "Technique chosen per table structure" },
-            { label: "Parse + OCR", detail: "pdfplumber & Tesseract OCR" },
-            { label: "Reconstruction", detail: "Rows & columns with Pandas" },
-            { label: "Export", detail: "Excel & structured formats" },
-          ],
-        },
-      ],
-      caption: "Detection comes first, so each table is extracted with the technique that suits its structure.",
-    },
     decisions: [
       {
         decision: "Train a YOLO model to detect tables before extracting them.",
@@ -279,28 +200,6 @@ export const projects: Project[] = [
     outcome:
       "A working edge-inference prototype on Raspberry Pi, validated on test images and video.",
     tech: ["Python", "YOLO", "OpenCV", "Raspberry Pi"],
-    architecture: {
-      lanes: [
-        {
-          name: "Training",
-          steps: [
-            { label: "Data preparation", detail: "Images & video" },
-            { label: "Annotation", detail: "Fire, smoke, gloves, PPE" },
-            { label: "YOLO training", detail: "Object detection model" },
-            { label: "Evaluation", detail: "Test images & video" },
-          ],
-        },
-        {
-          name: "Edge inference",
-          steps: [
-            { label: "Image / video input" },
-            { label: "Frame processing", detail: "OpenCV" },
-            { label: "YOLO on Raspberry Pi", detail: "Edge-based inference" },
-            { label: "Detections", detail: "Fire, smoke, gloves & PPE" },
-          ],
-        },
-      ],
-    },
     decisions: [
       {
         decision: "Annotate a custom dataset and train a YOLO object detector.",

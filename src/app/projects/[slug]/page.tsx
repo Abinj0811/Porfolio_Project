@@ -5,7 +5,6 @@ import { profile, projects } from "@/data/portfolio";
 import { siteUrl } from "@/lib/site";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ArchitectureDiagram from "@/components/ArchitectureDiagram";
 import JsonLd from "@/components/JsonLd";
 import { ArrowRight, ArrowUpRight } from "@/components/Icons";
 import { hasPublishedNotes } from "@/lib/notes";
@@ -98,10 +97,6 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             </div>
           )}
         </header>
-
-        <div className="mt-12">
-          <ArchitectureDiagram architecture={project.architecture} />
-        </div>
 
         <div className="mt-12">
           <Block label="Problem">
