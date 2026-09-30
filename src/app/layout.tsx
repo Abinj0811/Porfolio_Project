@@ -2,10 +2,15 @@ import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { profile } from "@/data/portfolio";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: `${profile.name} — ${profile.title}`,
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${profile.name} — ${profile.title}`,
+    template: `%s · ${profile.name}`,
+  },
   description: profile.tagline,
   keywords: [
     "AI Engineer",
@@ -19,11 +24,21 @@ export const metadata: Metadata = {
     profile.name,
   ],
   authors: [{ name: profile.name, url: profile.linkedin }],
+  alternates: { canonical: "/" },
   openGraph: {
     title: `${profile.name} — ${profile.title}`,
     description: profile.tagline,
     type: "profile",
+    url: "/",
+    siteName: profile.name,
+    locale: "en_US",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: `${profile.name} — ${profile.title}`,
+    description: profile.tagline,
+  },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {

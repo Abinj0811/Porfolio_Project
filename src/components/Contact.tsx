@@ -40,10 +40,14 @@ export default function Contact() {
   return (
     <Section
       id="contact"
-      index="06"
+      index="07"
       eyebrow="Contact"
       title="Let's talk about your AI roadmap."
-      intro="I'm interested in AI/ML and Generative AI engineering roles — RAG, agentic systems and document intelligence. The fastest way to reach me is email."
+      intro={
+        profile.openToWork.enabled
+          ? `${profile.openToWork.message} — RAG, agentic systems and document intelligence. The fastest way to reach me is email.`
+          : "Interested in AI/ML and Generative AI engineering — RAG, agentic systems and document intelligence. The fastest way to reach me is email."
+      }
     >
       <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
         <Reveal>
