@@ -1,4 +1,4 @@
-import { profile } from "@/data/portfolio";
+import { contact, profile } from "@/data/portfolio";
 import Section from "./Section";
 import Reveal from "./Reveal";
 import { ArrowUpRight, GitHub, LinkedIn, Mail, MapPin, Phone } from "./Icons";
@@ -41,12 +41,12 @@ export default function Contact() {
     <Section
       id="contact"
       index="06"
-      eyebrow="Contact"
-      title="Let's talk about your AI roadmap."
+      eyebrow={contact.eyebrow}
+      title={contact.title}
       intro={
         profile.openToWork.enabled
-          ? `${profile.openToWork.message} — RAG, agentic systems and document intelligence. The fastest way to reach me is email.`
-          : "Interested in AI/ML and Generative AI engineering — RAG, agentic systems and document intelligence. The fastest way to reach me is email."
+          ? `${profile.openToWork.message} — ${contact.openToWorkIntro}`
+          : contact.intro
       }
     >
       <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
@@ -55,7 +55,7 @@ export default function Contact() {
             href={`mailto:${profile.email}`}
             className="group flex h-full flex-col justify-between gap-10 rounded-xl border border-line bg-surface p-6 transition-colors hover:border-accent sm:p-8"
           >
-            <span className="font-mono text-xs uppercase tracking-[0.16em] text-subtle">Say hello</span>
+            <span className="font-mono text-xs uppercase tracking-[0.16em] text-subtle">{contact.sayHelloLabel}</span>
             <span className="flex items-end justify-between gap-4">
               <span className="text-xl font-semibold tracking-tight break-all text-fg sm:text-3xl">{profile.email}</span>
               <ArrowUpRight className="h-6 w-6 shrink-0 text-accent transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

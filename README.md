@@ -121,6 +121,7 @@ All text is kept in **`src/data/portfolio.ts`**. You can change the content with
 - **`experience`**: company, dates, role history and highlight cards.
 - **`skillGroups`**: skill categories and their items.
 - **`education`**: degree, institution and dates.
+- **`contact`**: the Contact section text: heading, intro and the "Say hello" card label. The email shown on the card comes from `profile.email`.
 - **`navLinks`**: the navigation items.
 
 ### Changing the look
