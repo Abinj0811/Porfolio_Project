@@ -7,7 +7,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { ArrowRight, ArrowUpRight } from "@/components/Icons";
-import { hasPublishedNotes } from "@/lib/notes";
 
 type Params = { slug: string };
 
@@ -58,7 +57,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
           author: { "@type": "Person", name: profile.name, url: siteUrl },
         }}
       />
-      <Navbar showNotes={hasPublishedNotes()} />
+      <Navbar />
       <main className="mx-auto max-w-5xl px-5 pt-28 pb-20 sm:px-8 sm:pt-36">
         <Link
           href="/#projects"
